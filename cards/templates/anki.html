@@ -1,0 +1,15 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h2>Карточки</h2>
+<div class="anki-container">
+    {% for card in cards %}
+    <div class="anki-card">
+        <h3>{{ card.word }}</h3>
+        {% if card.image %}
+            <img src="{{ card.image.url }}" alt="{{ card.word }}">
+        {% endif %}
+        <p><strong>{{ card.translation }}</strong></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

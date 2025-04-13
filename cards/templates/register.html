@@ -1,0 +1,9 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<h2>{% if request.path == '/register/' %}Регистрация{% else %}Вход{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if request.path == '/register/' %}Зарегистрироваться{% else %}Войти{% endif %}</button>
+</form>
+{% endblock %}
